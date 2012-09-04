@@ -20,6 +20,7 @@ namespace ConsoleSampleApp
 
             var client = new OpenPhotoClient("http://yourdomain.com", testApiKey, testApiSecret, oauthToken, oauthSecret);
             var photoList = client.Photos.GetList();
+            var singlePhoto = client.Photos.Get("id-of-photo");
         }
     }
 }
