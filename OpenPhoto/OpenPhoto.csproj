@@ -45,6 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Endpoints\PhotoEndpoint.cs" />
+    <Compile Include="Model\Photo.cs" />
+    <Compile Include="Model\ResponseEnvelope.cs" />
     <Compile Include="OpenPhotoClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

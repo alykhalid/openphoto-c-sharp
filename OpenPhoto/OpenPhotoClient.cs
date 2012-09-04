@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using OpenPhoto.Endpoints;
 using RestSharp;
 using RestSharp.Authenticators;
 using RestSharp.Authenticators.OAuth;
@@ -16,6 +17,16 @@ namespace OpenPhoto
             this.apiSecret = apiSecret;
             this.oauthToken = oauthToken;
             this.oauthSecret = oauthSecret;
+        }
+
+        public PhotoEndpoint Photos 
+        {
+            get
+            {
+                if (this.photoEndpoint == null)
+                    this.photoEndpoint = new PhotoEndpoint(this.RestClient);
+                return this.photoEndpoint;
+            }
         }
 
         public string HelloApiTest()
@@ -44,6 +55,7 @@ namespace OpenPhoto
         }
 
         private RestClient restClient;
+        private PhotoEndpoint photoEndpoint;
 
         private string apiKey;
         private string apiSecret;
