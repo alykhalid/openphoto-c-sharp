@@ -22,10 +22,18 @@ namespace OpenPhoto.Endpoints
             return response.Data;
         }
 
-        public ResponseEnvelope<IList<Photo>> GetList()
+        public ResponseEnvelope<List<Photo>> GetList()
         {
             var request = new RestRequest(PhotoEndpoint.EndpointUrlPlural + "/list.json", Method.GET);
-            var response = this.restClient.Execute<ResponseEnvelope<IList<Photo>>>(request);
+            var response = this.restClient.Execute<ResponseEnvelope<List<Photo>>>(request);
+
+            return response.Data;
+        }
+
+        public ResponseEnvelope<PhotoNextPreviousCollection> NextPrevious(string id)
+        {
+            var request = new RestRequest(PhotoEndpoint.EndpointUrlSingular + "/" + id + "/nextprevious.json", Method.GET);
+            var response = this.restClient.Execute<ResponseEnvelope<PhotoNextPreviousCollection>>(request);
 
             return response.Data;
         }
