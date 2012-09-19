@@ -4,7 +4,6 @@ using OpenPhoto.Endpoints;
 using RestSharp;
 using RestSharp.Authenticators;
 using RestSharp.Authenticators.OAuth;
-using RestSharp.Contrib;
 
 namespace OpenPhoto
 {
@@ -26,6 +25,16 @@ namespace OpenPhoto
                 if (this.photoEndpoint == null)
                     this.photoEndpoint = new PhotoEndpoint(this.RestClient);
                 return this.photoEndpoint;
+            }
+        }
+
+        public TagEndpoint Tags
+        {
+            get
+            {
+                if (this.tagEndpoint == null)
+                    this.tagEndpoint = new TagEndpoint(this.RestClient);
+                return this.tagEndpoint;
             }
         }
 
@@ -56,6 +65,7 @@ namespace OpenPhoto
 
         private RestClient restClient;
         private PhotoEndpoint photoEndpoint;
+        private TagEndpoint tagEndpoint;
 
         private string apiKey;
         private string apiSecret;

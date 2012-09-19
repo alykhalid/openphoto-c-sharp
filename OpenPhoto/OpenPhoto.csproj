@@ -46,9 +46,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Endpoints\PhotoEndpoint.cs" />
+    <Compile Include="Endpoints\TagEndpoint.cs" />
     <Compile Include="Model\Photo.cs" />
     <Compile Include="Model\PhotoNextPreviousCollection.cs" />
     <Compile Include="Model\ResponseEnvelope.cs" />
+    <Compile Include="Model\Tag.cs" />
     <Compile Include="OpenPhotoClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

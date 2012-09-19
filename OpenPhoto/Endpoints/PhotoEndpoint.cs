@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using OpenPhoto.Model;
 using RestSharp;
 
@@ -34,6 +33,14 @@ namespace OpenPhoto.Endpoints
         {
             var request = new RestRequest(PhotoEndpoint.EndpointUrlSingular + "/" + id + "/nextprevious.json", Method.GET);
             var response = this.restClient.Execute<ResponseEnvelope<PhotoNextPreviousCollection>>(request);
+
+            return response.Data;
+        }
+
+        public ResponseEnvelope<Photo> Delete(string id)
+        {
+            var request = new RestRequest(PhotoEndpoint.EndpointUrlSingular + "/" + id + "/delete.json", Method.POST);
+            var response = this.restClient.Execute<ResponseEnvelope<Photo>>(request);
 
             return response.Data;
         }
